@@ -211,7 +211,7 @@ function Set-Outcome {
             $script:level = "notice"
             $script:messageToDisplay = "Code Coverage $script:coveragePercentageString"
         }
-
+        
     if (($script:coveragePercentage -lt $inputs.minimum_coverage) -and ($inputs.fail_below_threshold -eq "")) {
             $script:status = "success"
             $script:level = "notice"
@@ -326,7 +326,7 @@ function Publish-ToCheckRun {
         status     = 'completed'
         conclusion = $outcome
         output     = @{
-            title   = "$reportName $coveragePercentage"
+            title   = "Code Coverage $coveragePercentage"
             summary = "This run completed at ``$([datetime]::Now)``"
             text    = $ReportData
         }
